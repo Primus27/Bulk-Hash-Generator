@@ -38,14 +38,14 @@
 
 
 #### Optional arguments:
-  - `-F` || `--fileout`
+  - `-O` || `--output`
     - Enable file output
     - Each value (name & hash) is written to a new line
     - It is recommended to output to a txt file
     - Default: Disabled
    
     
-  - `-FN FILENAME.txt` || `--filename FILENAME.txt`
+  - `-F FILENAME.txt` || `--filename FILENAME.txt`
     - Custom filename for output
     - It is recommended to output to a txt file
     - Default: hashes-DD.MM.YYYY-HH.MM.SS.txt
@@ -67,3 +67,7 @@
  - Calculate common hashes of all files in any directory
     - Can be relative path or absolute path
  - Output results to file
+ 
+#### Version 1.1 - File Output update
+ - Changed formatting for file output
+ - Minor bug fixes

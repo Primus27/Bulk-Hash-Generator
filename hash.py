@@ -72,9 +72,8 @@ def file_output(obj):
                             f.writelines(f"\n{item}\n")
                         else:
                             f.writelines(f"{item}\n")
-                f.writelines("\n")
-                print(colour("\n[*] File saved under '{f}'".format(
-                    f=file_output_name)), "yellow")
+                print(colour(f"\n[*] File saved under '{file_output_name}'",
+                             "yellow"))
             else:
                 f.writelines(f"{obj}\n")
     # Inadequate permission to access location / save to location
@@ -98,8 +97,6 @@ def main():
     start_time = datetime.now()
     temp_msg = f"[*] Hashing started at: {start_time}\n"
     print(colour(temp_msg, "yellow"))
-    if file_output_flag:
-        file_output(temp_msg)
 
     # Enumerate files in path
     file_list = enum_files(user_path)
@@ -145,8 +142,6 @@ def main():
         print(colour(temp_msg, "green"))
     else:
         print(colour(temp_msg, "red"))
-    if file_output_flag:
-        file_output(f"\n{temp_msg}")
 
     print(colour(f"[*] Hashing finished at {end_time}", "yellow"))
     print(colour(f"[*] Completion time: {end_time-start_time}", "yellow"))
@@ -170,13 +165,13 @@ if __name__ == '__main__':
     required.add_argument("-A", "--algorithm", nargs="*", action="store",
                           default=[], dest="algorithm",
                           help="Declare algorithms", required=True)
-    optional.add_argument("-F", "--fileout", action="store_true",
+    optional.add_argument("-O", "--output", action="store_true",
                           dest="file_output_flag", help="Enable file output")
-    optional.add_argument("-FN", "--filename", action="store",
+    optional.add_argument("-F", "--filename", action="store",
                           default="", dest="file_output_name",
                           help="Declare a custom filename for file output")
     optional.add_argument("--version", action="version",
-                          version="%(prog)s {v}".format(v=current_version),
+                          version=f"%(prog)s {current_version}",
                           help="Display program version")
     args = parser.parse_args()
 
